@@ -1,0 +1,126 @@
+.inputEl{
+    display: inline-block !important;
+    background: #C9DDE1 !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    line-height: 2.75 !important;
+}
+
+.labelEl{
+    color: #5D5F7E;
+    opacity: 1;
+}
+
+.search_icon{
+    /* Bootstrap Icon */
+    font-size: 23px;
+    color: #5D5F7E;
+    opacity: 0.6;
+    margin-left: -51px;
+    line-height: 2.75;
+    background: #C9DDE1 !important;
+}
+
+.caret_down{
+    font-size: 23px;
+    color: #5D5F7E;
+    opacity: 0.6;
+    margin-left: -28px;
+    background: #C9DDE1 !important;
+}
+
+/* Checkbox CSS */
+.checkboxInput{
+    box-shadow: none !important;
+    border-color: #2E3156 !important;
+}                                       
+.checkboxInput:checked {
+    background-color: #2E3156 !important;
+    border: none !important;
+}
+
+.checkbox_label{
+    color: #2E3156;
+}
+
+.checkbox_separator{
+    margin: 8px 0px !important;
+    color: black;
+    opacity: 0.2;
+}
+
+.filterEl{
+    width: 46%;
+}
+
+.filterEl1{
+    margin-right: 2%;
+}
+
+.typeDropdownMenu{
+    overflow-y: scroll;
+    height: 344px;
+}
+
+@media(max-width:768px){
+    .parent{
+        flex-wrap: nowrap !important;
+    }
+    .firstChild{
+        width:75% !important;
+    }
+
+    .hamburger_icon_parent{
+        width:20% !important;
+        border: 1px solid #2d3156;
+        border-radius: 8px;
+        max-width: 74px !important;
+    }
+
+    .hamburger_icon{
+        transform: translate(45%, 37%);
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 550px)  {
+    .firstChild{
+        width:82% !important;
+    }
+}
+/* .search_icon{
+    font-size: 30px;
+    color: #5D5F7E;
+    margin-left: -51px;
+    line-height: 2.75;
+    margin-top: -4px;
+    background: #C9DDE1 !important;
+} */
+
+/* -----------------------------Not Necessary----------------------------- */
+
+/* .has_search .form-control {
+  padding-right: 2.375rem;
+}
+.has_search .form_control_feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+} */
+
+/* .inputEl::placeholder, .inputEl:-ms-input-placeholder, .inputEl::-ms-input-placeholder, .inputEl::-webkit-input-placeholder {
+    color: #C9DDE1;
+    color: red !important;
+    opacity: 0.7; 
+}
+
+.form-control::placeholder {
+    color: red !important;
+} */

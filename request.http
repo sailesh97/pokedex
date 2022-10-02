@@ -1,0 +1,17 @@
+### PokemonList
+GET https://pokeapi.co/api/v2/pokemon HTTP/1.1
+
+### Pokemon Gender Master Data
+GET https://pokeapi.co/api/v2/gender HTTP/1.1
+
+### Pokemon Details
+GET https://pokeapi.co/api/v2/pokemon/6 HTTP/1.1
+
+### Pokemon Description
+GET https://pokeapi.co/api/v2/pokemon-species/6 HTTP/1.1
+
+### Pokemon Evolution Chain
+GET https://pokeapi.co/api/v2/evolution-chain/2 HTTP/1.1
+
+### Strength & Weakness
+GET https://pokeapi.co/api/v2/type HTTP/1.1

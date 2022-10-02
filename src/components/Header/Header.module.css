@@ -1,0 +1,29 @@
+/* Styling for all devices */
+.brand{
+    color: #2E3156;
+    letter-spacing: 2px;
+}
+
+.subText{
+    color: #5D5F7E;
+    font-size: 16px;
+}
+
+.line{
+    color: black;
+    border: 0;
+    border-top: 2px solid;
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 768px){
+    /* Styling for only dektop desktop */
+    .brand{
+        border-right: 1px solid #5D5F7E;
+    }
+
+    .subText{
+        color: #5D5F7E;
+        font-size: 20px;
+    }
+}
