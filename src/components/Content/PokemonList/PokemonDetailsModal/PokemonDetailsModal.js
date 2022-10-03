@@ -46,9 +46,11 @@ const PokemonDetailsModal = (props) => {
 
     imageUrl = props.data.sprites.other.dream_world.front_default;
 
-    const detectDeviceType = () =>
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-            ? 'Mobile' : 'Desktop';
+    const detectDeviceType = () =>{
+        if(/iPad/i.test(navigator.userAgent)) return 'iPad'; 
+        return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            ? 'Mobile' : 'Desktop';}
+
 
     const getDescription = () => {
         let description = '';
@@ -60,8 +62,10 @@ const PokemonDetailsModal = (props) => {
             }
         })
         wholeDescription = description;
-        if (detectDeviceType() == 'Desktop') {
+        if (detectDeviceType() === 'Desktop') {
             truncatedDescription = description.substring(0, 399) + '...';
+        } else if(detectDeviceType() === 'iPad'){
+            truncatedDescription = description.substring(0, 209) + '...';
         } else {
             truncatedDescription = description.substring(0, 70) + '...';
         }
