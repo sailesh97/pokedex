@@ -311,7 +311,7 @@ const PokemonDetailsModal = (props) => {
                             <div className="row bg-transparent">
                                 {props.data.stats.map((stat, indx) => {
                                     return (
-                                        <div className={`col-6 d-flex bg-transparent ${classes.alignContent}`} key={indx}>
+                                        <div className={`col-md-6 col-sm-12 d-flex bg-transparent ${classes.alignContent}`} key={indx}>
                                             <span className={classes.statLabel}>
                                                 {statsDisplayName[stat['stat'].name]}
                                             </span>
