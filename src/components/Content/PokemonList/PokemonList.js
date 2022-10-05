@@ -29,17 +29,27 @@ const PokemonList = () => {
 
     // Filtering Data based on selected type
     let selectedTypes = useSelector(state => state.filter.selectedTypes);
+    let keys = Object.keys(selectedTypes);
+
+    let selectedTypesCopy = {...selectedTypes};
+    keys.map(key => {
+        if(selectedTypesCopy[key] === false){
+            delete selectedTypesCopy[key];
+        }
+    })
+    
+    keys = Object.keys(selectedTypesCopy);
+    console.log("Update--selectedTypesCopy", selectedTypesCopy, keys)
     contentData = contentData.filter(pokemon => {
         let found = false;
         for (let i = 0; i < pokemon.types.length; i++) {
             let pokemonType = pokemon.types[i];
             let typeName = pokemonType["type"]['name'];
-            console.log("selectedTypes", selectedTypes);
-            let keys = Object.keys(selectedTypes);
-            if (selectedTypes && keys.length > 0) {
+            console.log("selectedTypesCopy", selectedTypesCopy);
+            if (selectedTypesCopy && keys.length > 0) {
                 for (let i = 0; i < keys.length; i++) {
                     let key = keys[i];
-                    if (selectedTypes[key]) {
+                    if (selectedTypesCopy[key]) {
                         if (key === typeName) {
                             console.log(key, typeName)
                             found = true;
@@ -58,13 +68,21 @@ const PokemonList = () => {
 
     // Filtering Data based on selected gender
     let selectedGender = useSelector(state => state.filter.selectedGender);
+    let selectedGenderCopy = {...selectedGender};
+    let genderKeys = Object.keys(selectedGenderCopy);
+    genderKeys.map(key => {
+        if(selectedGenderCopy[key] === false){
+            delete selectedGenderCopy[key];
+        }
+    })
+    genderKeys = Object.keys(selectedGenderCopy);
+    console.log("Selected Gendrr----", selectedGenderCopy);
     contentData = contentData.filter(pokemon => {
-        let keys = Object.keys(selectedGender);
-        if (selectedGender && keys.length > 0) {
+        if (selectedGenderCopy && genderKeys.length > 0) {
             let found = false;
-            for (let i = 0; i < keys.length; i++) {
-                let key = keys[i];
-                if (selectedGender[key]) {
+            for (let i = 0; i < genderKeys.length; i++) {
+                let key = genderKeys[i];
+                if (selectedGenderCopy[key]) {
                     if (pokemon.gender[key]) {
                         found = true;
                         break;
