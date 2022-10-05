@@ -29,32 +29,53 @@ const PokemonList = () => {
 
     // Filtering Data based on selected type
     let selectedTypes = useSelector(state => state.filter.selectedTypes);
-    Object.keys(selectedTypes).map(key => {
-        if(selectedTypes[key]){
-            contentData = contentData.filter(pokemon => {
-                let found = false;
-                for(let i = 0; i < pokemon.types.length; i++){
-                    let pokemonType = pokemon.types[i];
-                    let typeName = pokemonType["type"]['name'];
-                    if(key === typeName){
+    contentData = contentData.filter(pokemon => {
+        let found = false;
+        for (let i = 0; i < pokemon.types.length; i++) {
+            let pokemonType = pokemon.types[i];
+            let typeName = pokemonType["type"]['name'];
+            console.log("selectedTypes", selectedTypes);
+            let keys = Object.keys(selectedTypes);
+            if (selectedTypes && keys.length > 0) {
+                for (let i = 0; i < keys.length; i++) {
+                    let key = keys[i];
+                    if (selectedTypes[key]) {
+                        if (key === typeName) {
+                            console.log(key, typeName)
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                found = true;
+            }
+        }
+        return found;
+    })
+
+
+    // Filtering Data based on selected gender
+    let selectedGender = useSelector(state => state.filter.selectedGender);
+    contentData = contentData.filter(pokemon => {
+        let keys = Object.keys(selectedGender);
+        if (selectedGender && keys.length > 0) {
+            let found = false;
+            for (let i = 0; i < keys.length; i++) {
+                let key = keys[i];
+                if (selectedGender[key]) {
+                    if (pokemon.gender[key]) {
                         found = true;
                         break;
                     }
                 }
-                return found;
-            })
+            }
+            return found;
+        } else {
+            return true;
         }
-    })
-
-    // Filtering Data based on selected gender
-    let selectedGender = useSelector(state => state.filter.selectedGender);
-    Object.keys(selectedGender).map(key => {
-        if(selectedGender[key]){
-            contentData = contentData.filter(pokemon => {
-                return pokemon.gender[key];
-            })
-        }
-    })
+    });
     
     // Sorting Filtered Data Based on Id
     contentData = contentData.slice().sort((a, b) => a.id - b.id)
@@ -63,6 +84,7 @@ const PokemonList = () => {
         <div className={`${classes.container_p} container mt-4`}>
             <div className="row">
                 {contentData.map(content => <Pokemon key={content.id} pokemonDetails={content}/>)}
+                {contentData.length === 0 && <p className={classes.nopokemons}>No pokemons with selected filters found.</p>}
             </div>
         </div>
     );

@@ -7,3 +7,9 @@
     padding-right: 19px !important; */
     cursor: pointer;
 }
+
+.nopokemons{
+    text-align: center;
+    padding: 100px;
+    font-size: 30px;
+}
